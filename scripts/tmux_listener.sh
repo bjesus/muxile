@@ -9,6 +9,7 @@ echo "{\"message\": \"${pane_content}\"}" | socat UNIX-CONNECT:/tmp/muxile.socke
 while true
 do 
     sleep 1
+    tmux display 'Muxile is running'
     new_pane_content=$(tmux capture-pane -p | base64 -w 0)
     if [ "$pane_content" != "$new_pane_content" ]; then
         pane_content=$new_pane_content
