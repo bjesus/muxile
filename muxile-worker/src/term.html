@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>Muxile</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style type="text/css">
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        color: white;
+        background: black;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        font-family: sans-serif;
+      }
+
+      h2 {
+        position: absolute;
+        right: 0;
+        padding-right: 1rem;
+      }
+
+      pre {
+        flex-grow: 1;
+        overflow: auto;
+        margin: 0;
+        padding: 0;
+      }
+
+      div {
+        display: flex;
+      }
+
+      input {
+        background: #222;
+        flex-grow: 1;
+        color: white;
+        border: 0;
+        padding: 0.5rem 0;
+        font-family: monospace;
+      }
+
+      button {
+        font-family: monospace;
+        border: 0;
+        background: #444;
+        outline: none;
+      }
+
+      button.toggled {
+        box-shadow: inset 0px 0px 5px #c1c1c1;
+      }
+
+      ::placeholder {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Muxile</h2>
+    <pre id="term-content"></pre>
+    <div>
+      <input type="text" placeholder="$ type here" />
+      <!-- onkeyup="this.value=''"  -->
+      <button onclick="this.classList.toggle('toggled');">Ctrl</button>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const termContent = document.querySelector("#term-content");
+    const roomId = window.location.pathname.split("/").slice(-1);
+    const ctrl = document.getElementsByTagName("button")[0];
+    const input = document.getElementsByTagName("input")[0];
+
+    const hostname = window.location.host;
+    const ws = new WebSocket(
+      "wss://" + hostname + "/api/room/" + roomId + "/websocket"
+    );
+
+    ws.addEventListener("open", (event) => {
+      ws.send(JSON.stringify({ name: "phone" }));
+    });
+
+    ws.addEventListener("message", (event) => {
+      let data = JSON.parse(event.data);
+      if (data.name === "tmux" || data.name === "anonymous") {
+        termContent.innerHTML = atob(data.message);
+      }
+    });
+
+    document.addEventListener("keydown", sendKey);
+
+    function sendKey(e) {
+      let key = e.key;
+
+      if (key === "Enter") {
+        key = input.value;
+        input.value = "";
+
+        if (ctrl.className === "toggled") {
+          key = "c-" + key;
+          ctrl.classList.toggle("toggled");
+        }
+
+        key && ws.send(JSON.stringify({ message: key }));
+      }
+    }
+  </script>
+</html>

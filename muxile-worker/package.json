@@ -1,0 +1,6 @@
+{
+  "name": "muxile",
+  "description": "Putting your Tmux on your mobile",
+  "version": "1.0.0",
+  "module": "./src/muxile.mjs"
+}

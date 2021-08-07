@@ -1,0 +1,16 @@
+name = "muxile"
+type = "javascript"
+workers_dev = true
+# Add your account ID here
+account_id = ""
+
+[build.upload]
+format = "modules"
+dir = "src"
+main = "./muxile.mjs"
+rules = [{type = "Data", globs = ["**/*.html"]}]
+
+[durable_objects]
+bindings = [
+  { name = "rooms", class_name = "ChatRoom" }
+]
