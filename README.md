@@ -1,4 +1,4 @@
-# Muxile
+# 📺 Muxile
 
 ## Putting tmux on your mobile
 
@@ -19,6 +19,7 @@ Muxile is a tmux plugin that lets you move your running tmux session to your pho
 
 -   [qrencode](https://fukuchi.org/works/qrencode/)
 -   [uuid](http://www.ossp.org/pkg/lib/uuid/)
+-   [jq](https://github.com/stedolan/jq)
 -   [websocat](https://github.com/vi/websocat/)
 
 ### How it works
