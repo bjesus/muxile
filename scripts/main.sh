@@ -19,7 +19,7 @@ if test -S "/tmp/muxile.socket"; then
     echo 'Muxile is off.'
 else
     # Generate an ID for the session
-    uuid=$(uuid)
+    uuid=$(uuidgen)
     # Open WebSocket connection, UNIX socket and key forwarder
     touch firstmessage
     setsid websocat --exec-sighup-on-stdin-close -tE unix-l:/tmp/muxile.socket reuse-raw:sh-c:'websocat -t - wss://muxile.zaraz.workers.dev/api/room/'"$uuid"'/websocket | xargs -n1 -d"\n" ./keys-forwarder.sh' &>/dev/null & disown;

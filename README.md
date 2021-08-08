@@ -2,7 +2,7 @@
 
 ## Putting tmux on your mobile
 
-Muxile is a tmux plugin that lets you move your running tmux session to your phone, without needing any app. It's great if you want to keep watching a long-running task, re-run it if it fails, and run other commands. It can also be used to share your session with a friend temporarily.
+Muxile is a tmux plugin that lets you move your running tmux session to your phone, without needing any app. Use it to keep watching a long-running process, to re-run it if it fails, or to just control your terminal remotely. You can also be used to quickly share your session with someone.
 
 https://user-images.githubusercontent.com/55081/128633692-59978412-d319-4059-b935-779072446d93.mp4
 
@@ -19,10 +19,9 @@ https://user-images.githubusercontent.com/55081/128633692-59978412-d319-4059-b93
 
 ### Requirements
 
--   [qrencode](https://fukuchi.org/works/qrencode/)
--   [uuid](http://www.ossp.org/pkg/lib/uuid/)
--   [jq](https://github.com/stedolan/jq)
--   [websocat](https://github.com/vi/websocat/)
+-   [qrencode](https://fukuchi.org/works/qrencode/) (`pacman -S qrencode`, `apt install qrencode`)
+-   [jq](https://github.com/stedolan/jq) (`pacman -S qrencode`, `apt install qrencode`)
+-   [websocat](https://github.com/vi/websocat/) (`pacman -S qrencode`)
 
 ### How it works
 
