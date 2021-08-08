@@ -3,6 +3,9 @@
 code=$@
 if echo $code | jq .name | grep phone > /dev/null; then
 	key=$(echo "$@" | jq -r .message)
-	tmux send-keys $key
+	for word in $key
+	do
+	    tmux send-keys $word
+	done
 	tmux send-keys Enter
 fi
