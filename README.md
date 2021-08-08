@@ -20,8 +20,8 @@ https://user-images.githubusercontent.com/55081/128633692-59978412-d319-4059-b93
 ### Requirements
 
 -   [qrencode](https://fukuchi.org/works/qrencode/) (`pacman -S qrencode`, `apt install qrencode`)
--   [jq](https://github.com/stedolan/jq) (`pacman -S qrencode`, `apt install qrencode`)
--   [websocat](https://github.com/vi/websocat/) (`pacman -S qrencode`)
+-   [jq](https://github.com/stedolan/jq) (`pacman -S jq`, `apt install jq`)
+-   [websocat](https://github.com/vi/websocat/) (`pacman -S websocat`)
 
 ### How it works
 
