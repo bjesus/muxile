@@ -4,6 +4,8 @@
 
 Muxile is a tmux plugin that lets you move your running tmux session to your phone, without needing any app. It's great if you want to keep watching a long-running task, re-run it if it fails, and run other commands. It can also be used to share your session with a friend temporarily.
 
+https://user-images.githubusercontent.com/55081/128633692-59978412-d319-4059-b935-779072446d93.mp4
+
 ### How to use
 
 1. Install the plugin using [TPM](https://github.com/tmux-plugins/tpm) or load it by running `./muxile.tmux`
