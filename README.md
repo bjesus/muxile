@@ -29,4 +29,4 @@ Muxile uses a Cloudflare Worker that serves as WebSocket server and allows the c
 
 ### See also
 
--   [tmate.io](tmate.io)
+-   [tmate.io](https://tmate.io)
